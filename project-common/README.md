@@ -1,0 +1,8 @@
+# Common工程提供功能
+1. 各种模型基类DomainModelBase
+2. 用于领域事件抽象和事件发布-订阅的Event组件
+3. 用于事件存储实现方案的EventStore组件
+4. 通用持久化工具类PersistenceUtil
+5. 上下文集成涉及RESTful风格的工具类RestUtil
+6. 用于事件存储和传输过程中通用序列化工具类SerializationUtil
+7. 使用Spring容器进行依赖注入的工具类SpringUtil及各种基础工具服务CommonUtil
