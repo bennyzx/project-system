@@ -40,9 +40,10 @@ public class Task extends Entity {
 	}
 
 	public void taskInProgress() {
-		if(this.getStatus() != TaskStatus.NOT_STARTED)
+		if (this.getStatus() != TaskStatus.NOT_STARTED) {
 			throw new IllegalStateException("Task is not in the status of 'NOT_STARTED', can not be in progress.");
-		
+		}
+
 		this.setStatus(TaskStatus.IN_PROGRESS);
 		
 		DomainEventPublisher.instance().publish(
@@ -50,9 +51,10 @@ public class Task extends Entity {
 	}
 
 	public void taskImpeded() {
-		if(this.getStatus() != TaskStatus.NOT_STARTED || this.getStatus() != TaskStatus.IN_PROGRESS)
+		if (this.getStatus() != TaskStatus.NOT_STARTED || this.getStatus() != TaskStatus.IN_PROGRESS) {
 			throw new IllegalStateException("Task is not in the status of 'NOT_STARTED' or 'IN_PROGRESS', can not be impeded.");
-		
+		}
+
 		this.setStatus(TaskStatus.IMPEDED);
 		
 		DomainEventPublisher.instance().publish(
@@ -60,9 +62,10 @@ public class Task extends Entity {
 	}
 
 	public void taskDone() {
-		if(this.getStatus() != TaskStatus.IN_PROGRESS || this.getStatus() != TaskStatus.IMPEDED)
+		if (this.getStatus() != TaskStatus.IN_PROGRESS || this.getStatus() != TaskStatus.IMPEDED) {
 			throw new IllegalStateException("Task is not in the status of 'IN_PROGRESS' or 'IMPEDED', can not be done.");
-		
+		}
+
 		this.setStatus(TaskStatus.DONE);
 		
 		DomainEventPublisher.instance().publish(
